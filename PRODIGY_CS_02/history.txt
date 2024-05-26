@@ -22,3 +22,5 @@ Encryption | Input: /home/soldier/Desktop/PRODIGY/PRODIGY_CS_02/birds.png | Outp
 Decryption | Input: /home/soldier/Desktop/PRODIGY/PRODIGY_CS_02/birds.png | Output: /home/soldier/Desktop/PRODIGY/PRODIGY_CS_02/birds_decrypted.png | Key: 345
 Decryption | Input: /home/soldier/Desktop/PRODIGY/PRODIGY_CS_02/birds.png | Output: /home/soldier/Desktop/PRODIGY/PRODIGY_CS_02/birds_decrypted.png | Key: 346
 Encryption | Input: /home/soldier/Desktop/PRODIGY/PRODIGY_CS_02/birds_decrypted.png | Output: /home/soldier/Desktop/PRODIGY/PRODIGY_CS_02/birds_decrypted_encrypted.png | Key: 346
+Encryption | Input: /home/soldier/Desktop/PRODIGY/PRODIGY_CS_02/sample.png | Output: /home/soldier/Desktop/PRODIGY/PRODIGY_CS_02/sample_encrypted.png | Key: 104
+Decryption | Input: /home/soldier/Desktop/PRODIGY/PRODIGY_CS_02/sample_encrypted.png | Output: /home/soldier/Desktop/PRODIGY/PRODIGY_CS_02/sample_encrypted_decrypted.png | Key: 104
