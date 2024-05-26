@@ -38,7 +38,11 @@ def encrypt():
 
     result = caesar_cipher(text, shift, "encrypt")
     log_history(text, shift, "encrypt", result)
-    result_display.config(text=f"Encrypted Result: {result}", fg="#4CAF50", font=("Arial", 12, "bold"))
+    display_result("Encrypted Result: ", result)
+
+    # Reset the input text and shift value
+    text_entry.delete(0, tk.END)
+    shift_entry.delete(0, tk.END)
 
 def decrypt():
     # Handle the decryption process and update the GUI.
@@ -51,7 +55,11 @@ def decrypt():
 
     result = caesar_cipher(text, shift, "decrypt")
     log_history(text, shift, "decrypt", result)
-    result_display.config(text=f"Decrypted Result: {result}", fg="#1976D2", font=("Arial", 12, "bold"))
+    display_result("Decrypted Result: ", result)
+
+    # Reset the input text and shift value
+    text_entry.delete(0, tk.END)
+    shift_entry.delete(0, tk.END)
 
 def show_help():
     # Display the help information in a message box.
@@ -70,6 +78,16 @@ def show_help():
              Decrypt "KHOOR" with a shift of 3 -> "HELLO".
     """
     messagebox.showinfo("Help", help_text)
+
+def display_result(prefix, result):
+    # Display the result with a prefix in the result label
+    result_label.config(text=prefix, fg="#FFFFFF", font=("Arial", 12, "bold"))
+    result_display.config(text=result, fg="#FFFFFF", font=("Arial", 12))
+    # Resize the window to fit the result text
+    root.update_idletasks()  # Update the window to calculate the new size
+    window_width = root.winfo_reqwidth()
+    window_height = root.winfo_reqheight()
+    root.geometry(f"{window_width}x{window_height}")
 
 # Create the main window
 root = tk.Tk()
@@ -99,7 +117,10 @@ help_button.grid(row=2, column=2, padx=10, pady=10, sticky="e")
 result_frame = tk.Frame(root, bg="#424242", bd=1, relief=tk.SOLID)  # Dark gray frame
 result_frame.grid(row=3, column=0, columnspan=3, padx=10, pady=5, sticky="nsew")
 
-result_display = tk.Label(result_frame, text="", bg="#424242", fg="#FFFFFF", font=("Arial", 12), justify="left", anchor="nw")  # Dark entry box
+result_label = tk.Label(result_frame, text="", bg="#424242", fg="#FFFFFF", font=("Arial", 12, "bold"))  # Dark entry box
+result_label.pack(padx=10, pady=5)
+
+result_display = tk.Label(result_frame, text="", bg="#424242", fg="#FFFFFF", font=("Arial", 12), justify="left", anchor="nw", wraplength=200)
 result_display.pack(padx=10, pady=5)
 
 # Start the main event loop
