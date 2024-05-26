@@ -51,6 +51,9 @@ def main():
         elif choice == '3':
             display_help()
             continue
+        elif choice not in ['1', '2']:
+            print("Invalid choice, please try again.\n")
+            continue
 
         text = input("Enter your message: ")
         try:
