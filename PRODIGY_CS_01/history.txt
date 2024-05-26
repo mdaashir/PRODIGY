@@ -12,3 +12,10 @@ Encrypt | Shift: 6 | Input: god | Output: muj
 Decrypt | Shift: 6 | Input: god | Output: aix
 Encrypt | Shift: 23 | Input: doctor | Output: alzqlo
 Encrypt | Shift: 5 | Input: hello | Output: mjqqt
+Encrypt | Shift: 4 | Input: kfsgkfhgjhfgjhfjghfghfjghjfhhgjhjghdf;lgh;djghdfghdjfghdfjgh | Output: ojwkojlknljknljnkljkljnklnjllknlnklhj;pkl;hnklhjklhnjklhjnkl
+Encrypt | Shift: 23 | Input: sdmfnsdbfjbff | Output: pajckpaycgycc
+Encrypt | Shift: 5 | Input: good morning | Output: ltti rtwsnsl
+Encrypt | Shift: 5 | Input: good evening | Output: ltti jajsnsl
+Decrypt | Shift: 5 | Input: good evening | Output: bjjy zqzidib
+Encrypt | Shift: 5 | Input: good evening | Output: ltti jajsnsl
+Decrypt | Shift: 5 | Input: good evening | Output: bjjy zqzidib

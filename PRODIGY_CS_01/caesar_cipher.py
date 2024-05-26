@@ -38,7 +38,7 @@ def encrypt():
 
     result = caesar_cipher(text, shift, "encrypt")
     log_history(text, shift, "encrypt", result)
-    result_label.config(text=f"Encrypted Result: {result}", fg="#4CAF50", font=("Arial", 12, "bold"))
+    result_display.config(text=f"Encrypted Result: {result}", fg="#4CAF50", font=("Arial", 12, "bold"))
 
 def decrypt():
     # Handle the decryption process and update the GUI.
@@ -51,7 +51,7 @@ def decrypt():
 
     result = caesar_cipher(text, shift, "decrypt")
     log_history(text, shift, "decrypt", result)
-    result_label.config(text=f"Decrypted Result: {result}", fg="#1976D2", font=("Arial", 12, "bold"))
+    result_display.config(text=f"Decrypted Result: {result}", fg="#1976D2", font=("Arial", 12, "bold"))
 
 def show_help():
     # Display the help information in a message box.
@@ -95,15 +95,11 @@ decrypt_button.grid(row=2, column=1, padx=10, pady=10, sticky="w")
 help_button = tk.Button(root, text="Help", command=show_help, bg="#FFA000", fg="#212121", font=("Arial", 12, "bold"), padx=10)  # Dark orange
 help_button.grid(row=2, column=2, padx=10, pady=10, sticky="e")
 
-result_label = tk.Label(root, text="Result: ", bg="#212121", fg="#FFFFFF", font=("Arial", 12))  # Dark background
-result_label.grid(row=3, column=0, columnspan=3, padx=10, pady=5, sticky="nsew")
-
-# Result Frame
 result_frame = tk.Frame(root, bg="#424242", bd=1, relief=tk.SOLID)  # Dark gray frame
-result_frame.grid(row=4, column=0, columnspan=3, padx=10, pady=5, sticky="nsew")
+result_frame.grid(row=3, column=0, columnspan=3, padx=10, pady=5, sticky="nsew")
 
 result_display = tk.Label(result_frame, text="", bg="#424242", fg="#FFFFFF", font=("Arial", 12), justify="left", anchor="nw")  # Dark entry box
-result_display.pack(padx=10, pady=5, fill="both", expand=True)
+result_display.pack(padx=10, pady=5)
 
 # Start the main event loop
 root.mainloop()
