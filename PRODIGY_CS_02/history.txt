@@ -1,2 +1,4 @@
 Encryption | Input: birds.png | Output: birds_encrypted.png | Key: 123
 Decryption | Input: birds_encrypted.png | Output: birds_encrypted_decrypted.png | Key: 123
+Encryption | Input: /home/soldier/Desktop/PRODIGY/PRODIGY_CS_02/birds.png | Output: /home/soldier/Desktop/PRODIGY/PRODIGY_CS_02/birds_encrypted.png | Key: 123
+Decryption | Input: /home/soldier/Desktop/PRODIGY/PRODIGY_CS_02/birds.png | Output: /home/soldier/Desktop/PRODIGY/PRODIGY_CS_02/birds_decrypted.png | Key: 123
