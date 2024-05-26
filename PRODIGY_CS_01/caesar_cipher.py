@@ -38,7 +38,7 @@ def encrypt():
 
     result = caesar_cipher(text, shift, "encrypt")
     log_history(text, shift, "encrypt", result)
-    result_label.config(text=f"Result: {result}")
+    result_label.config(text=f"Encrypted Result: {result}")
 
 def decrypt():
     # Handle the decryption process and update the GUI.
@@ -51,7 +51,7 @@ def decrypt():
 
     result = caesar_cipher(text, shift, "decrypt")
     log_history(text, shift, "decrypt", result)
-    result_label.config(text=f"Result: {result}")
+    result_label.config(text=f"Decrypted Result: {result}")
 
 def show_help():
     # Display the help information in a message box.
@@ -71,10 +71,11 @@ def show_help():
     """
     messagebox.showinfo("Help", help_text)
 
-# Created the main window
+# Create the main window
 root = tk.Tk()
 root.title("Caesar Cipher")
 
+# Create and place the widgets
 tk.Label(root, text="Enter your message:").grid(row=0, column=0, padx=10, pady=10)
 text_entry = tk.Entry(root, width=50)
 text_entry.grid(row=0, column=1, padx=10, pady=10)
