@@ -38,7 +38,7 @@ def encrypt():
 
     result = caesar_cipher(text, shift, "encrypt")
     log_history(text, shift, "encrypt", result)
-    result_label.config(text=f"Encrypted Result: {result}")
+    result_label.config(text=f"Encrypted Result: {result}", fg="#4CAF50", font=("Arial", 12, "bold"))
 
 def decrypt():
     # Handle the decryption process and update the GUI.
@@ -51,14 +51,14 @@ def decrypt():
 
     result = caesar_cipher(text, shift, "decrypt")
     log_history(text, shift, "decrypt", result)
-    result_label.config(text=f"Decrypted Result: {result}")
+    result_label.config(text=f"Decrypted Result: {result}", fg="#1976D2", font=("Arial", 12, "bold"))
 
 def show_help():
     # Display the help information in a message box.
     help_text = """
-    Caesar Cipher Help
+    Caesar Cipher Tool
 
-    This program allows you to encrypt and decrypt text using the Caesar Cipher algorithm.
+    This tool allows you to encrypt and decrypt text using the Caesar Cipher algorithm.
 
     Instructions:
     - Enter the text to process.
@@ -73,30 +73,32 @@ def show_help():
 
 # Create the main window
 root = tk.Tk()
-root.title("Caesar Cipher")
+root.title("Caesar Cipher Tool")
+root.geometry("400x250")
+root.configure(bg="#FFFFFF")
 
 # Create and place the widgets
-tk.Label(root, text="Enter your message:").grid(row=0, column=0, padx=10, pady=10)
-text_entry = tk.Entry(root, width=50)
-text_entry.grid(row=0, column=1, padx=10, pady=10)
+tk.Label(root, text="Enter Text:", bg="#FFFFFF", fg="#333333", font=("Arial", 12)).grid(row=0, column=0, padx=10, pady=5, sticky="w")
+text_entry = tk.Entry(root, width=40, bg="#FFFFFF", fg="#333333", font=("Arial", 12))
+text_entry.grid(row=0, column=1, padx=10, pady=5)
 
-tk.Label(root, text="Enter the shift value:").grid(row=1, column=0, padx=10, pady=10)
-shift_entry = tk.Entry(root, width=10)
-shift_entry.grid(row=1, column=1, padx=10, pady=10, sticky="w")
+tk.Label(root, text="Shift Value:", bg="#FFFFFF", fg="#333333", font=("Arial", 12)).grid(row=1, column=0, padx=10, pady=5, sticky="w")
+shift_entry = tk.Entry(root, width=10, bg="#FFFFFF", fg="#333333", font=("Arial", 12))
+shift_entry.grid(row=1, column=1, padx=10, pady=5, sticky="w")
 
-encrypt_button = tk.Button(root, text="Encrypt", command=encrypt)
-encrypt_button.grid(row=2, column=0, padx=10, pady=10)
+encrypt_button = tk.Button(root, text="Encrypt", command=encrypt, bg="#4CAF50", fg="#FFFFFF", font=("Arial", 12, "bold"), padx=10)
+encrypt_button.grid(row=2, column=0, padx=10, pady=10, sticky="w")
 
-decrypt_button = tk.Button(root, text="Decrypt", command=decrypt)
+decrypt_button = tk.Button(root, text="Decrypt", command=decrypt, bg="#1976D2", fg="#FFFFFF", font=("Arial", 12, "bold"), padx=10)
 decrypt_button.grid(row=2, column=1, padx=10, pady=10, sticky="w")
 
-result_label = tk.Label(root, text="Result: ")
-result_label.grid(row=3, column=0, columnspan=2, padx=10, pady=10)
+result_label = tk.Label(root, text="Result: ", bg="#FFFFFF", fg="#333333", font=("Arial", 12))
+result_label.grid(row=3, column=0, columnspan=2, padx=10, pady=5)
 
-help_button = tk.Button(root, text="Help", command=show_help)
-help_button.grid(row=4, column=0, padx=10, pady=10)
+help_button = tk.Button(root, text="Help", command=show_help, bg="#FFC107", fg="#333333", font=("Arial", 12, "bold"), padx=10)
+help_button.grid(row=4, column=0, padx=10, pady=10, sticky="w")
 
-exit_button = tk.Button(root, text="Exit", command=root.quit)
+exit_button = tk.Button(root, text="Exit", command=root.quit, bg="#FF5722", fg="#FFFFFF", font=("Arial", 12, "bold"), padx=10)
 exit_button.grid(row=4, column=1, padx=10, pady=10, sticky="w")
 
 # Start the main event loop
