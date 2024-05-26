@@ -1,0 +1,2 @@
+Encrypt | Shift: 4 | Input: aashir | Output: eewlmv
+Decrypt | Shift: 4 | Input: eewlmv | Output: aashir

@@ -37,6 +37,10 @@ def display_help():
     """
     print(help_text)
 
+def log_history(text, shift, direction, result):
+    with open("history.txt", "a") as file:
+        file.write(f"{direction.capitalize()} | Shift: {shift} | Input: {text} | Output: {result}\n")
+
 def main():
     while True:
         print("Caesar Cipher")
@@ -71,6 +75,7 @@ def main():
             continue
 
         result = caesar_cipher(text, shift, direction)
+        log_history(text, shift, direction, result)
         print(f"Result: {result}\n")
 
 if __name__ == "__main__":
