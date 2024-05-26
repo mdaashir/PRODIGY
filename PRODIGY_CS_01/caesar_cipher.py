@@ -74,12 +74,13 @@ def show_help():
 # Create the main window
 root = tk.Tk()
 root.title("Caesar Cipher Tool")
-root.geometry("400x250")
+root.geometry("400x200")
 root.configure(bg="#212121")  # Dark background
+root.resizable(False, False)  # Make the window fixed
 
 # Create and place the widgets
 tk.Label(root, text="Enter Text:", bg="#212121", fg="#FFFFFF", font=("Arial", 12)).grid(row=0, column=0, padx=10, pady=5, sticky="w")
-text_entry = tk.Entry(root, width=40, bg="#424242", fg="#FFFFFF", font=("Arial", 12))  # Dark entry box
+text_entry = tk.Entry(root, width=20, bg="#424242", fg="#FFFFFF", font=("Arial", 12))  # Dark entry box
 text_entry.grid(row=0, column=1, padx=10, pady=5)
 
 tk.Label(root, text="Shift Value:", bg="#212121", fg="#FFFFFF", font=("Arial", 12)).grid(row=1, column=0, padx=10, pady=5, sticky="w")

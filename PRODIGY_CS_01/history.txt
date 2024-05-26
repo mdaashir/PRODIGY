@@ -19,3 +19,7 @@ Encrypt | Shift: 5 | Input: good evening | Output: ltti jajsnsl
 Decrypt | Shift: 5 | Input: good evening | Output: bjjy zqzidib
 Encrypt | Shift: 5 | Input: good evening | Output: ltti jajsnsl
 Decrypt | Shift: 5 | Input: good evening | Output: bjjy zqzidib
+Encrypt | Shift: 34 | Input: erfhrw | Output: mznpze
+Encrypt | Shift: 1 | Input: qwertyuiop | Output: rxfsuzvjpq
+Encrypt | Shift: 26 | Input: apple | Output: apple
+Decrypt | Shift: 26 | Input: apple | Output: apple
