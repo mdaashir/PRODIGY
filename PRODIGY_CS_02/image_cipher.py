@@ -5,7 +5,7 @@ import numpy as np
 import os
 import subprocess
 
-output_image_path = "brids.png"
+output_image_path = ""  # Define output_image_path as a global variable
 
 def encrypt_image(input_image_path, output_image_path, key):
     try:
@@ -57,6 +57,8 @@ def log_action(action, input_path, output_path, key):
         log_file.write(log_entry)
 
 def encrypt():
+    global output_image_path  # Declare the global variable
+
     input_image_path = input_entry.get()
     key = key_entry.get()
     if not key.isdigit():
@@ -75,6 +77,8 @@ def encrypt():
         view_button.grid()
 
 def decrypt():
+    global output_image_path  # Declare the global variable
+    
     input_image_path = input_entry.get()
     key = key_entry.get()
     if not key.isdigit():
@@ -114,7 +118,9 @@ def show_help():
     """
     messagebox.showinfo("Help", help_text)
 
-def view_output(): 
+def view_output():
+    global output_image_path  # Declare the global variable
+
     try:
         subprocess.Popen(["xdg-open", output_image_path])  # Linux
     except:
