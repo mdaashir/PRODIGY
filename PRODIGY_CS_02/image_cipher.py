@@ -62,6 +62,11 @@ def encrypt():
     key = int(key)
 
     output_image_path = generate_output_path(input_image_path, "encrypted")
+
+    # Reset the input text and key value
+    input_entry.delete(0, tk.END)
+    key_entry.delete(0, tk.END)
+
     if encrypt_image(input_image_path, output_image_path, key):
         messagebox.showinfo("Success", f"Image encrypted and saved to {output_image_path}")
 
@@ -74,6 +79,11 @@ def decrypt():
     key = int(key)
 
     output_image_path = generate_output_path(input_image_path, "decrypted")
+
+    # Reset the input text and key value
+    input_entry.delete(0, tk.END)
+    key_entry.delete(0, tk.END)
+    
     if decrypt_image(input_image_path, output_image_path, key):
         messagebox.showinfo("Success", f"Image decrypted and saved to {output_image_path}")
 
@@ -102,6 +112,7 @@ def show_help():
 # Create the main window
 root = tk.Tk()
 root.title("Image Encryption/Decryption Tool")
+root.resizable(False, False)  # Make the window fixed
 
 # Create and place widgets
 input_label = tk.Label(root, text="Input Image:", font=("Arial", 12))
@@ -110,7 +121,7 @@ input_label.grid(row=0, column=0, padx=5, pady=5)
 input_entry = tk.Entry(root, width=40, font=("Arial", 12))
 input_entry.grid(row=0, column=1, padx=5, pady=5)
 
-browse_button = tk.Button(root, text="Browse", command=browse_image, font=("Arial", 12))
+browse_button = tk.Button(root, text="Browse", command=browse_image, font=("Arial", 12), bg="#2196F3", fg="#FFFFFF")
 browse_button.grid(row=0, column=2, padx=5, pady=5)
 
 key_label = tk.Label(root, text="Key:", font=("Arial", 12))
@@ -119,13 +130,13 @@ key_label.grid(row=1, column=0, padx=5, pady=5)
 key_entry = tk.Entry(root, width=10, font=("Arial", 12))
 key_entry.grid(row=1, column=1, padx=5, pady=5)
 
-encrypt_button = tk.Button(root, text="Encrypt", command=encrypt, font=("Arial", 12))
+encrypt_button = tk.Button(root, text="Encrypt", command=encrypt, font=("Arial", 12), bg="#4CAF50", fg="#FFFFFF")
 encrypt_button.grid(row=2, column=0, padx=5, pady=5)
 
-decrypt_button = tk.Button(root, text="Decrypt", command=decrypt, font=("Arial", 12))
+decrypt_button = tk.Button(root, text="Decrypt", command=decrypt, font=("Arial", 12), bg="#FF5722", fg="#FFFFFF")
 decrypt_button.grid(row=2, column=1, padx=5, pady=5)
 
-help_button = tk.Button(root, text="Help", command=show_help, font=("Arial", 12))
+help_button = tk.Button(root, text="Help", command=show_help, font=("Arial", 12), bg="#607D8B", fg="#FFFFFF")
 help_button.grid(row=2, column=2, padx=5, pady=5)
 
 # Start the main event loop
