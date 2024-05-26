@@ -47,12 +47,12 @@ This file logs each encryption and decryption operation performed by the tool, i
 
 Explore the visual outputs of the Image Encryption/Decryption Tool:
 <div align="center">
-  <img src="output/encrypt.png" alt="Encryption Output">
-  <img src="output/sample_encrypted.png" alt="Encryption Output">
+  <img src="output/encrypt.png" alt="Encryption Output" width="400">
+  <img src="output/sample_encrypted.png" alt="Encryption Output" width="400">
   <p align="center">Encryption Operation</p>
   <br>
-  <img src="output/decrypt.png" alt="Decryption Output">
-  <img src="output/sample_encrypted_decrypted.png" alt="Decryption Output">
+  <img src="output/decrypt.png" alt="Decryption Output" width="400">
+  <img src="output/sample_encrypted_decrypted.png" alt="Decryption Output" width="400">
   <p align="center">Decryption Operation</p>
 </div>
 
