@@ -1,3 +1,6 @@
+import tkinter as tk
+from tkinter import messagebox
+
 def caesar_cipher(text, shift, direction):
     result = ""
     shift = shift % 26  # Ensure the shift is within the range of 0-25
@@ -18,65 +21,74 @@ def caesar_cipher(text, shift, direction):
 
     return result
 
-def display_help():
-    help_text = """
-    Caesar Cipher Program Help Menu
-
-    This program allows you to encrypt and decrypt text using the Caesar Cipher algorithm.
-
-    Options:
-    1. Encrypt - Encrypts the provided text using the specified shift value.
-    2. Decrypt - Decrypts the provided text using the specified shift value.
-    3. Help    - Displays this help menu.
-    4. Exit    - Exits the program.
-
-    Instructions:
-    - When prompted, choose an option by entering the corresponding number.
-    - Enter the text you want to encrypt or decrypt.
-    - Enter the shift value (an integer) to use for the Caesar Cipher.
-    """
-    print(help_text)
-
 def log_history(text, shift, direction, result):
     with open("history.txt", "a") as file:
         file.write(f"{direction.capitalize()} | Shift: {shift} | Input: {text} | Output: {result}\n")
 
-def main():
-    while True:
-        print("Caesar Cipher")
-        print("1. Encrypt")
-        print("2. Decrypt")
-        print("3. Help")
-        print("4. Exit")
-        choice = input("Choose an option: ")
+def encrypt():
+    text = text_entry.get()
+    try:
+        shift = int(shift_entry.get())
+    except ValueError:
+        messagebox.showerror("Invalid Input", "Shift value must be an integer.")
+        return
 
-        if choice == '4':
-            break
-        elif choice == '3':
-            display_help()
-            continue
-        elif choice not in ['1', '2']:
-            print("Invalid choice, please try again.\n")
-            continue
+    result = caesar_cipher(text, shift, "encrypt")
+    log_history(text, shift, "encrypt", result)
+    result_label.config(text=f"Result: {result}")
 
-        text = input("Enter your message: ")
-        try:
-            shift = int(input("Enter the shift value: "))
-        except ValueError:
-            print("Invalid shift value, please enter an integer.\n")
-            continue
+def decrypt():
+    text = text_entry.get()
+    try:
+        shift = int(shift_entry.get())
+    except ValueError:
+        messagebox.showerror("Invalid Input", "Shift value must be an integer.")
+        return
 
-        if choice == '1':
-            direction = "encrypt"
-        elif choice == '2':
-            direction = "decrypt"
-        else:
-            print("Invalid choice, please try again.")
-            continue
+    result = caesar_cipher(text, shift, "decrypt")
+    log_history(text, shift, "decrypt", result)
+    result_label.config(text=f"Result: {result}")
 
-        result = caesar_cipher(text, shift, direction)
-        log_history(text, shift, direction, result)
-        print(f"Result: {result}\n")
+def show_help():
+    help_text = """
+    Caesar Cipher Help
 
-if __name__ == "__main__":
-    main()
+    This program allows you to encrypt and decrypt text using the Caesar Cipher algorithm.
+
+    Instructions:
+    - Enter the text to process.
+    - Enter the shift value (an integer).
+    - Click Encrypt or Decrypt to perform the operation.
+    """
+    messagebox.showinfo("Help", help_text)
+
+# Create the main window
+root = tk.Tk()
+root.title("Caesar Cipher")
+
+# Create and place the widgets
+tk.Label(root, text="Enter your message:").grid(row=0, column=0, padx=10, pady=10)
+text_entry = tk.Entry(root, width=50)
+text_entry.grid(row=0, column=1, padx=10, pady=10)
+
+tk.Label(root, text="Enter the shift value:").grid(row=1, column=0, padx=10, pady=10)
+shift_entry = tk.Entry(root, width=10)
+shift_entry.grid(row=1, column=1, padx=10, pady=10, sticky="w")
+
+encrypt_button = tk.Button(root, text="Encrypt", command=encrypt)
+encrypt_button.grid(row=2, column=0, padx=10, pady=10)
+
+decrypt_button = tk.Button(root, text="Decrypt", command=decrypt)
+decrypt_button.grid(row=2, column=1, padx=10, pady=10, sticky="w")
+
+result_label = tk.Label(root, text="Result: ")
+result_label.grid(row=3, column=0, columnspan=2, padx=10, pady=10)
+
+help_button = tk.Button(root, text="Help", command=show_help)
+help_button.grid(row=4, column=0, padx=10, pady=10)
+
+exit_button = tk.Button(root, text="Exit", command=root.quit)
+exit_button.grid(row=4, column=1, padx=10, pady=10, sticky="w")
+
+# Start the main event loop
+root.mainloop()

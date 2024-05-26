@@ -1,2 +1,8 @@
 Encrypt | Shift: 4 | Input: aashir | Output: eewlmv
 Decrypt | Shift: 4 | Input: eewlmv | Output: aashir
+Encrypt | Shift: 3 | Input: aashir | Output: ddvklu
+Decrypt | Shift: 3 | Input: aashir | Output: xxpefo
+Decrypt | Shift: 3 | Input: aashir | Output: xxpefo
+Decrypt | Shift: 3 | Input: aashir | Output: xxpefo
+Encrypt | Shift: 3 | Input: aashir | Output: ddvklu
+Decrypt | Shift: 3 | Input: aashir | Output: xxpefo
