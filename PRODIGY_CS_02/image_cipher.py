@@ -14,6 +14,9 @@ def encrypt_image(input_image_path, output_image_path, key):
         # Create and save the encrypted image
         encrypted_image = Image.fromarray(encrypted_array.astype('uint8'))
         encrypted_image.save(output_image_path)
+        
+        # Log the action
+        log_action("Encryption", input_image_path, output_image_path, key)
     except Exception as e:
         print(f"An error occurred during encryption: {e}")
 
@@ -29,12 +32,20 @@ def decrypt_image(input_image_path, output_image_path, key):
         # Create and save the decrypted image
         decrypted_image = Image.fromarray(decrypted_array.astype('uint8'))
         decrypted_image.save(output_image_path)
+        
+        # Log the action
+        log_action("Decryption", input_image_path, output_image_path, key)
     except Exception as e:
         print(f"An error occurred during decryption: {e}")
 
 def generate_output_path(input_path, suffix):
     base, ext = os.path.splitext(input_path)
     return f"{base}_{suffix}{ext}"
+
+def log_action(action, input_path, output_path, key):
+    log_entry = f"{action} | Input: {input_path} | Output: {output_path} | Key: {key}\n"
+    with open("history.txt", "a") as log_file:
+        log_file.write(log_entry)
 
 def main():
     while True:

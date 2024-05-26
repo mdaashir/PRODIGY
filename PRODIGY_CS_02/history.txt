@@ -1,0 +1,2 @@
+Encryption | Input: birds.png | Output: birds_encrypted.png | Key: 123
+Decryption | Input: birds_encrypted.png | Output: birds_encrypted_decrypted.png | Key: 123
