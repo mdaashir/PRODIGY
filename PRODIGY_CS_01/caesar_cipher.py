@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 
 def caesar_cipher(text, shift, direction):
+    # Encrypt or decrypt text using Caesar Cipher.
     result = ""
     shift = shift % 26  # Ensure the shift is within the range of 0-25
 
@@ -22,10 +23,12 @@ def caesar_cipher(text, shift, direction):
     return result
 
 def log_history(text, shift, direction, result):
+    # Log the encryption or decryption operation to history.txt.
     with open("history.txt", "a") as file:
         file.write(f"{direction.capitalize()} | Shift: {shift} | Input: {text} | Output: {result}\n")
 
 def encrypt():
+    # Handle the encryption process and update the GUI.
     text = text_entry.get()
     try:
         shift = int(shift_entry.get())
@@ -38,6 +41,7 @@ def encrypt():
     result_label.config(text=f"Result: {result}")
 
 def decrypt():
+    # Handle the decryption process and update the GUI.
     text = text_entry.get()
     try:
         shift = int(shift_entry.get())
@@ -50,6 +54,7 @@ def decrypt():
     result_label.config(text=f"Result: {result}")
 
 def show_help():
+    # Display the help information in a message box.
     help_text = """
     Caesar Cipher Help
 
@@ -59,14 +64,17 @@ def show_help():
     - Enter the text to process.
     - Enter the shift value (an integer).
     - Click Encrypt or Decrypt to perform the operation.
+
+    The Caesar Cipher shifts each letter by the specified number of positions.
+    Example: Encrypt "HELLO" with a shift of 3 -> "KHOOR".
+             Decrypt "KHOOR" with a shift of 3 -> "HELLO".
     """
     messagebox.showinfo("Help", help_text)
 
-# Create the main window
+# Created the main window
 root = tk.Tk()
 root.title("Caesar Cipher")
 
-# Create and place the widgets
 tk.Label(root, text="Enter your message:").grid(row=0, column=0, padx=10, pady=10)
 text_entry = tk.Entry(root, width=50)
 text_entry.grid(row=0, column=1, padx=10, pady=10)
