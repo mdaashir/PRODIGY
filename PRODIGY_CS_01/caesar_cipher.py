@@ -75,34 +75,34 @@ def show_help():
 root = tk.Tk()
 root.title("Caesar Cipher Tool")
 root.geometry("400x250")
-root.configure(bg="#FFFFFF")
+root.configure(bg="#212121")  # Dark background
 
 # Create and place the widgets
-tk.Label(root, text="Enter Text:", bg="#FFFFFF", fg="#333333", font=("Arial", 12)).grid(row=0, column=0, padx=10, pady=5, sticky="w")
-text_entry = tk.Entry(root, width=40, bg="#FFFFFF", fg="#333333", font=("Arial", 12))
+tk.Label(root, text="Enter Text:", bg="#212121", fg="#FFFFFF", font=("Arial", 12)).grid(row=0, column=0, padx=10, pady=5, sticky="w")
+text_entry = tk.Entry(root, width=40, bg="#424242", fg="#FFFFFF", font=("Arial", 12))  # Dark entry box
 text_entry.grid(row=0, column=1, padx=10, pady=5)
 
-tk.Label(root, text="Shift Value:", bg="#FFFFFF", fg="#333333", font=("Arial", 12)).grid(row=1, column=0, padx=10, pady=5, sticky="w")
-shift_entry = tk.Entry(root, width=10, bg="#FFFFFF", fg="#333333", font=("Arial", 12))
+tk.Label(root, text="Shift Value:", bg="#212121", fg="#FFFFFF", font=("Arial", 12)).grid(row=1, column=0, padx=10, pady=5, sticky="w")
+shift_entry = tk.Entry(root, width=10, bg="#424242", fg="#FFFFFF", font=("Arial", 12))  # Dark entry box
 shift_entry.grid(row=1, column=1, padx=10, pady=5, sticky="w")
 
-encrypt_button = tk.Button(root, text="Encrypt", command=encrypt, bg="#4CAF50", fg="#FFFFFF", font=("Arial", 12, "bold"), padx=10)
+encrypt_button = tk.Button(root, text="Encrypt", command=encrypt, bg="#388E3C", fg="#FFFFFF", font=("Arial", 12, "bold"), padx=10)  # Dark green
 encrypt_button.grid(row=2, column=0, padx=10, pady=10, sticky="w")
 
-decrypt_button = tk.Button(root, text="Decrypt", command=decrypt, bg="#1976D2", fg="#FFFFFF", font=("Arial", 12, "bold"), padx=10)
+decrypt_button = tk.Button(root, text="Decrypt", command=decrypt, bg="#1976D2", fg="#FFFFFF", font=("Arial", 12, "bold"), padx=10)  # Dark blue
 decrypt_button.grid(row=2, column=1, padx=10, pady=10, sticky="w")
 
-help_button = tk.Button(root, text="Help", command=show_help, bg="#FFC107", fg="#333333", font=("Arial", 12, "bold"), padx=10)
+help_button = tk.Button(root, text="Help", command=show_help, bg="#FFA000", fg="#212121", font=("Arial", 12, "bold"), padx=10)  # Dark orange
 help_button.grid(row=2, column=2, padx=10, pady=10, sticky="e")
 
-result_label = tk.Label(root, text="Result: ", bg="#FFFFFF", fg="#333333", font=("Arial", 12))
+result_label = tk.Label(root, text="Result: ", bg="#212121", fg="#FFFFFF", font=("Arial", 12))  # Dark background
 result_label.grid(row=3, column=0, columnspan=3, padx=10, pady=5, sticky="nsew")
 
 # Result Frame
-result_frame = tk.Frame(root, bg="#E0E0E0", bd=1, relief=tk.SOLID)
+result_frame = tk.Frame(root, bg="#424242", bd=1, relief=tk.SOLID)  # Dark gray frame
 result_frame.grid(row=4, column=0, columnspan=3, padx=10, pady=5, sticky="nsew")
 
-result_display = tk.Label(result_frame, text="", bg="#E0E0E0", fg="#333333", font=("Arial", 12), justify="left", anchor="nw")
+result_display = tk.Label(result_frame, text="", bg="#424242", fg="#FFFFFF", font=("Arial", 12), justify="left", anchor="nw")  # Dark entry box
 result_display.pack(padx=10, pady=5, fill="both", expand=True)
 
 # Start the main event loop
