@@ -1,7 +1,7 @@
 # 🔐 Caesar Cipher Tool
 
 <p align="center">
-  <img src="cipher_tool_banner.png" alt="Caesar Cipher Tool Banner" width="800">
+  <img src="cipher_tool_banner.png" alt="Caesar Cipher Tool Banner" width="400">
 </p>
 
 <p align="center">Welcome to the Caesar Cipher Tool repository! This tool allows you to encrypt and decrypt text using the Caesar Cipher algorithm. Let's get started! 🚀</p>
@@ -48,13 +48,13 @@ This file logs each encryption and decryption operation performed by the tool, i
 Explore the visual outputs of the Caesar Cipher Tool:
 
 <div align="center">
-  <img src="output/encrypt.png" alt="Encryption Output" width="800">
+  <img src="output/encrypt.png" alt="Encryption Output">
   <p align="center">Encryption Operation</p>
   <br>
-  <img src="output/decrypt.png" alt="Decryption Output" width="800">
+  <img src="output/decrypt.png" alt="Decryption Output">
   <p align="center">Decryption Operation</p>
   <br>
-  <img src="output/copy.png" alt="Copy Output" width="800">
+  <img src="output/copy.png" alt="Copy Output">
   <p align="center">Copy Result Operation</p>
 </div>
 
