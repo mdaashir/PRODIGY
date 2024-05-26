@@ -3,6 +3,9 @@ from tkinter import filedialog, messagebox
 from PIL import Image, ImageTk
 import numpy as np
 import os
+import subprocess
+
+output_image_path = "brids.png"
 
 def encrypt_image(input_image_path, output_image_path, key):
     try:
@@ -69,6 +72,7 @@ def encrypt():
 
     if encrypt_image(input_image_path, output_image_path, key):
         messagebox.showinfo("Success", f"Image encrypted and saved to {output_image_path}")
+        view_button.grid()
 
 def decrypt():
     input_image_path = input_entry.get()
@@ -86,6 +90,7 @@ def decrypt():
     
     if decrypt_image(input_image_path, output_image_path, key):
         messagebox.showinfo("Success", f"Image decrypted and saved to {output_image_path}")
+        view_button.grid()
 
 def browse_image():
     file_path = filedialog.askopenfilename()
@@ -108,6 +113,16 @@ def show_help():
     - Decrypted images will be saved with '_decrypted' suffix.
     """
     messagebox.showinfo("Help", help_text)
+
+def view_output(): 
+    try:
+        subprocess.Popen(["xdg-open", output_image_path])  # Linux
+    except:
+        try:
+            subprocess.Popen(["open", output_image_path])  # macOS
+        except:
+            subprocess.Popen(["start", output_image_path], shell=True)  # Windows
+            
 
 # Create the main window
 root = tk.Tk()
@@ -138,6 +153,10 @@ decrypt_button.grid(row=2, column=1, padx=5, pady=5)
 
 help_button = tk.Button(root, text="Help", command=show_help, font=("Arial", 12), bg="#607D8B", fg="#FFFFFF")
 help_button.grid(row=2, column=2, padx=5, pady=5)
+
+view_button = tk.Button(root, text="View", command=view_output, font=("Arial", 12), bg="#673AB7", fg="#FFFFFF")
+view_button.grid(row=1, column=2, padx=5, pady=5)
+view_button.grid_remove()  # Hide the view button initially
 
 # Start the main event loop
 root.mainloop()
