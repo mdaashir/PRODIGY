@@ -53,7 +53,11 @@ def main():
             continue
 
         text = input("Enter your message: ")
-        shift = int(input("Enter the shift value: "))
+        try:
+            shift = int(input("Enter the shift value: "))
+        except ValueError:
+            print("Invalid shift value, please enter an integer.\n")
+            continue
 
         if choice == '1':
             direction = "encrypt"
