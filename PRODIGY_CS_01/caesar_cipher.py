@@ -92,14 +92,18 @@ encrypt_button.grid(row=2, column=0, padx=10, pady=10, sticky="w")
 decrypt_button = tk.Button(root, text="Decrypt", command=decrypt, bg="#1976D2", fg="#FFFFFF", font=("Arial", 12, "bold"), padx=10)
 decrypt_button.grid(row=2, column=1, padx=10, pady=10, sticky="w")
 
-result_label = tk.Label(root, text="Result: ", bg="#FFFFFF", fg="#333333", font=("Arial", 12))
-result_label.grid(row=3, column=0, columnspan=2, padx=10, pady=5)
-
 help_button = tk.Button(root, text="Help", command=show_help, bg="#FFC107", fg="#333333", font=("Arial", 12, "bold"), padx=10)
-help_button.grid(row=4, column=0, padx=10, pady=10, sticky="w")
+help_button.grid(row=2, column=2, padx=10, pady=10, sticky="e")
 
-exit_button = tk.Button(root, text="Exit", command=root.quit, bg="#FF5722", fg="#FFFFFF", font=("Arial", 12, "bold"), padx=10)
-exit_button.grid(row=4, column=1, padx=10, pady=10, sticky="w")
+result_label = tk.Label(root, text="Result: ", bg="#FFFFFF", fg="#333333", font=("Arial", 12))
+result_label.grid(row=3, column=0, columnspan=3, padx=10, pady=5, sticky="nsew")
+
+# Result Frame
+result_frame = tk.Frame(root, bg="#E0E0E0", bd=1, relief=tk.SOLID)
+result_frame.grid(row=4, column=0, columnspan=3, padx=10, pady=5, sticky="nsew")
+
+result_display = tk.Label(result_frame, text="", bg="#E0E0E0", fg="#333333", font=("Arial", 12), justify="left", anchor="nw")
+result_display.pack(padx=10, pady=5, fill="both", expand=True)
 
 # Start the main event loop
 root.mainloop()

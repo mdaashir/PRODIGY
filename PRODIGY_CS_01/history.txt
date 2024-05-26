@@ -11,3 +11,4 @@ Decrypt | Shift: 7 | Input: hello | Output: axeeh
 Encrypt | Shift: 6 | Input: god | Output: muj
 Decrypt | Shift: 6 | Input: god | Output: aix
 Encrypt | Shift: 23 | Input: doctor | Output: alzqlo
+Encrypt | Shift: 5 | Input: hello | Output: mjqqt
