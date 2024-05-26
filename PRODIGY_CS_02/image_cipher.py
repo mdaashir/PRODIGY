@@ -13,11 +13,23 @@ def encrypt_image(input_image_path, output_image_path, key):
     encrypted_image = Image.fromarray(encrypted_array.astype('uint8'))
     encrypted_image.save(output_image_path)
 
+def decrypt_image(input_image_path, output_image_path, key):
+    # Open the encrypted image
+    image = Image.open(input_image_path)
+    image_array = np.array(image)
+    
+    # Decrypt the image by subtracting the key from each pixel value
+    decrypted_array = (image_array - key) % 256
+    
+    # Create and save the decrypted image
+    decrypted_image = Image.fromarray(decrypted_array.astype('uint8'))
+    decrypted_image.save(output_image_path)
+
 def main():
     # Define input and output paths
     input_image_path = 'birds.png'
     encrypted_image_path = 'encrypted_image.png'
-
+    decrypted_image_path = 'decrypted_image.png'
     
     # Define a key for encryption/decryption
     key = 321
@@ -26,5 +38,9 @@ def main():
     encrypt_image(input_image_path, encrypted_image_path, key)
     print(f'Image encrypted and saved to {encrypted_image_path}')
     
+    # Decrypt the image
+    decrypt_image(encrypted_image_path, decrypted_image_path, key)
+    print(f'Image decrypted and saved to {decrypted_image_path}')
+
 if __name__ == '__main__':
     main()
