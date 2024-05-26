@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+import pyperclip
 
 def caesar_cipher(text, shift, direction):
     # Encrypt or decrypt text using Caesar Cipher.
@@ -83,11 +84,20 @@ def display_result(prefix, result):
     # Display the result with a prefix in the result label
     result_label.config(text=prefix, fg="#FFFFFF", font=("Arial", 12, "bold"))
     result_display.config(text=result, fg="#FFFFFF", font=("Arial", 12))
+    # Show the copy button
+    copy_button.grid()
     # Resize the window to fit the result text
     root.update_idletasks()  # Update the window to calculate the new size
     window_width = root.winfo_reqwidth()
     window_height = root.winfo_reqheight()
     root.geometry(f"{window_width}x{window_height}")
+
+def copy_result():
+    # Copy the result text to the clipboard
+    result = result_display.cget("text")
+    pyperclip.copy(result)
+    messagebox.showinfo("Copied", "Text copied to clipboard.")
+    copy_button.grid_remove() # Hide the copy button after copying
 
 # Create the main window
 root = tk.Tk()
@@ -113,6 +123,10 @@ decrypt_button.grid(row=2, column=1, padx=10, pady=10, sticky="w")
 
 help_button = tk.Button(root, text="Help", command=show_help, bg="#FFA000", fg="#212121", font=("Arial", 12, "bold"), padx=10)  # Dark orange
 help_button.grid(row=2, column=2, padx=10, pady=10, sticky="e")
+
+copy_button = tk.Button(root, text="Copy", command=copy_result, bg="#616161", fg="#FFFFFF", font=("Arial", 12, "bold"), padx=10)  # Gray button
+copy_button.grid(row=2, column=2, padx=10, pady=10, sticky="e")
+copy_button.grid_remove()  # Hide the copy button initially
 
 result_frame = tk.Frame(root, bg="#424242", bd=1, relief=tk.SOLID)  # Dark gray frame
 result_frame.grid(row=3, column=0, columnspan=3, padx=10, pady=5, sticky="nsew")
