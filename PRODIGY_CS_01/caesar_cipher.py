@@ -18,16 +18,39 @@ def caesar_cipher(text, shift, direction):
 
     return result
 
+def display_help():
+    help_text = """
+    Caesar Cipher Program Help Menu
+
+    This program allows you to encrypt and decrypt text using the Caesar Cipher algorithm.
+
+    Options:
+    1. Encrypt - Encrypts the provided text using the specified shift value.
+    2. Decrypt - Decrypts the provided text using the specified shift value.
+    3. Help    - Displays this help menu.
+    4. Exit    - Exits the program.
+
+    Instructions:
+    - When prompted, choose an option by entering the corresponding number.
+    - Enter the text you want to encrypt or decrypt.
+    - Enter the shift value (an integer) to use for the Caesar Cipher.
+    """
+    print(help_text)
+
 def main():
     while True:
         print("Caesar Cipher")
         print("1. Encrypt")
         print("2. Decrypt")
-        print("3. Exit")
+        print("3. Help")
+        print("4. Exit")
         choice = input("Choose an option: ")
 
-        if choice == '3':
+        if choice == '4':
             break
+        elif choice == '3':
+            display_help()
+            continue
 
         text = input("Enter your message: ")
         shift = int(input("Enter the shift value: "))
