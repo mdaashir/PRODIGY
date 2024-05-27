@@ -1,0 +1,1 @@
+zxcvbnm,./';lkjhgfdsaqwertyuiop[]\[BACKSPACE]=-0987654321`[Key.right][Key.up][Key.down][Key.left][Key.ctrl_r][Key.menu][Key.menu][Key.menu][Key.alt_r] [Key.alt][Key.ctrl][Key.shift][Key.caps_lock][Key.caps_lock]		[Key.page_up][Key.page_down][Key.end][Key.home][Key.delete][ESC]
