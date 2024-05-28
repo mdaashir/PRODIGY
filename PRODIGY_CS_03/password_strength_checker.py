@@ -1,13 +1,11 @@
-import re
-
 def check_criteria(password):
     # Check various criteria for password strength.
     criteria = {
         "length": len(password) >= 8,
-        "uppercase": bool(re.search(r'[A-Z]', password)),
-        "lowercase": bool(re.search(r'[a-z]', password)),
-        "number": bool(re.search(r'[0-9]', password)),
-        "special": bool(re.search(r'[\W_]', password))  # \W matches any non-alphanumeric character
+        "uppercase": any(char.isupper() for char in password),
+        "lowercase": any(char.islower() for char in password),
+        "number": any(char.isdigit() for char in password),
+        "special": any(not char.isalnum() for char in password)
     }
     return criteria
 
@@ -29,39 +27,39 @@ def generate_feedback(criteria):
     feedback = []
     
     if criteria["length"]:
-        feedback.append("✓ Length is sufficient")
+        feedback.append("[+] Length is sufficient")
     else:
-        feedback.append("✗ Length should be at least 8 characters")
+        feedback.append("[-] Length should be at least 8 characters")
 
     if criteria["uppercase"]:
-        feedback.append("✓ Contains uppercase letter(s)")
+        feedback.append("[+] Contains uppercase letter(s)")
     else:
-        feedback.append("✗ Should contain at least one uppercase letter")
+        feedback.append("[-] Should contain at least one uppercase letter")
 
     if criteria["lowercase"]:
-        feedback.append("✓ Contains lowercase letter(s)")
+        feedback.append("[+] Contains lowercase letter(s)")
     else:
-        feedback.append("✗ Should contain at least one lowercase letter")
+        feedback.append("[-] Should contain at least one lowercase letter")
 
     if criteria["number"]:
-        feedback.append("✓ Contains number(s)")
+        feedback.append("[+] Contains number(s)")
     else:
-        feedback.append("✗ Should contain at least one number")
+        feedback.append("[-] Should contain at least one number")
 
     if criteria["special"]:
-        feedback.append("✓ Contains special character(s)")
+        feedback.append("[+] Contains special character(s)")
     else:
-        feedback.append("✗ Should contain at least one special character")
+        feedback.append("[-] Should contain at least one special character")
 
     return feedback
 
 def determine_strength(score):
     # Determine the strength level based on the score.
-    if score >= 7:
+    if score >= 10:
         return "Very Strong"
-    elif score >= 5:
+    elif score >= 8:
         return "Strong"
-    elif score >= 3:
+    elif score >= 6:
         return "Moderate"
     else:
         return "Weak"
